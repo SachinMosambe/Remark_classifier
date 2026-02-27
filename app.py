@@ -1,8 +1,7 @@
 import streamlit as st
 import requests
 
-# URL of the FastAPI service (adjust host/port if you start it differently)
-API_URL = "http://localhost:8000/classify"
+API_URL = "https://your-api-name.onrender.com/classify"
 
 st.title("Expense Classifier")
 
