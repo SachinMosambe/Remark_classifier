@@ -1,7 +1,7 @@
 import streamlit as st
 import requests
 
-API_URL = "https://your-api-name.onrender.com/classify"
+API_URL = "https://expense-classifier-api.onrender.com/classify"
 
 st.title("Expense Classifier")
 
