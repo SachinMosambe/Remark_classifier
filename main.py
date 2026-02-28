@@ -11,6 +11,11 @@ app = FastAPI(
 def startup_event():
     load()
 
+# Root endpoint — Hugging Face uses this to check if app is alive
+@app.get("/")
+def root():
+    return {"status": "Expense Classifier API is running!"}
+
 @app.post("/classify")
 def predict_category(input: Remark_input):
     prediction = predict_expense_category(input.remark)

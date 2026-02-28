@@ -1,0 +1,23 @@
+services:
+  # FastAPI Backend
+  - type: web
+    name: expense-classifier-api
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+
+  # Streamlit Frontend  
+  - type: web
+    name: expense-classifier-frontend
+    runtime: python
+    buildCommand: "pip install streamlit requests"
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: API_URL
+        value: "https://expense-classifier-api.onrender.com/classify"
