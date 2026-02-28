@@ -7,7 +7,7 @@ embedder = None
 def load():
     global model, embedder
     model = joblib.load("expense_classifier.pkl")
-    embedder = SentenceTransformer('all-mpnet-base-v2')
+    embedder = SentenceTransformer('all-MiniLM-L6-v2')
 
 
 def predict_expense_category(text:str):
